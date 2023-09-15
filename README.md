@@ -5,26 +5,23 @@
 ---
 
 - [Background](#background)
-- [Instructions and Requirements](#instructions-and-requirements)
-  - [Prepare the Data *(20 points)*](#prepare-the-data-20-points)
-  - [Generate Summary Statistics *(15 points)*](#generate-summary-statistics-15-points)
-  - [Create Bar Charts and Pie Charts *(15 points)*](#create-bar-charts-and-pie-charts-15-points)
-  - [Calculate Quartiles, Find Outliers, and Create a Box Plot *(30 points)*](#calculate-quartiles-find-outliers-and-create-a-box-plot-30-points)
-  - [Create a Line Plot and a Scatter Plot *(10 points)*](#create-a-line-plot-and-a-scatter-plot-10-points)
-  - [Calculate Correlation and Regression *(10 points)*](#calculate-correlation-and-regression-10-points)
+- [Summary](#summary)
+  - [Prepare the data](#prepare-the-data)
+  - [Generate summary statistics](#generate-summary-statistics)
+  - [Create bar charts and pie charts](#create-bar-charts-and-pie-charts)
+  - [Calculate quartiles, find outliers, and create a box plot.](#calculate-quartiles-find-outliers-and-create-a-box-plot)
+  - [Create a line plot and a scatter plot.](#create-a-line-plot-and-a-scatter-plot)
+  - [Calculate correlation and regression.](#calculate-correlation-and-regression)
+- [References](#references)
 
 
 ---
 
 This repo contains my work for the fifth weekly challenge of the UofT SCS edX Data Bootcamp.
 
+**Notebook:** [Pymaceuticals/pymaceuticals_analysis_tsbarr.ipynb](Pymaceuticals/pymaceuticals_analysis_tsbarr.ipynb)
+
 ---
-
-**From bootcampspot:**
-
-What good is data without a good plot to tell the story?
-
-In this assignment, you’ll apply what you've learned about Matplotlib to a real-world situation and dataset.
 
 ## Background
 
@@ -34,125 +31,135 @@ As a senior data analyst at the company, you've been given access to the complet
 
 The executive team has tasked you with generating all of the tables and figures needed for the technical report of the clinical study. They have also asked you for a top-level summary of the study results.
 
-## Instructions and Requirements
+
+## Summary
 
 This assignment is broken down into the following tasks:
 
-- Prepare the data.
+1. Prepare the data.
 
-- Generate summary statistics.
+2. Generate summary statistics.
 
-- Create bar charts and pie charts.
+3. Create bar charts and pie charts.
 
-- Calculate quartiles, find outliers, and create a box plot.
+4. Calculate quartiles, find outliers, and create a box plot.
 
-- Create a line plot and a scatter plot.
+5. Create a line plot and a scatter plot.
 
-- Calculate correlation and regression.
+6. Calculate correlation and regression.
 
-- Submit your final analysis.
+7. Submit your final analysis.
 
-### Prepare the Data *(20 points)*
+### Prepare the data
 
-1. Run the provided package dependency and data imports, and then merge the mouse_metadata and study_results DataFrames into a single DataFrame.
+Steps:
 
-> - *The datasets are merged into a single DataFrame. (6 points)*
+1. Input data.
+2. Merge into a single dataframe.
+3. Clean out duplicates.
 
-2. Display the number of unique mice IDs in the data, and then check for any mouse ID with duplicate time points. Display the data associated with that mouse ID, and then create a new DataFrame where this data is removed. Use this cleaned DataFrame for the remaining steps.
+Result:
 
-> - *The number of mice are shown from the merged DataFrame. (2 points)*
-> - *Each duplicate mice is found based on the Mouse ID and Timepoint. (6 points)*
-> - *A clean DataFrame is created with the dropped duplicate mice. (4 points)*
+![first 10 rows of clean_data](Pymaceuticals/results/clean_data_head10.png)
 
-3. Display the updated number of unique mice IDs.
+### Generate summary statistics
 
-> - *The number of mice are shown from the clean DataFrame. (2 points)*
+Steps:
 
-### Generate Summary Statistics *(15 points)*
+1. Get the mean, median, variance, standard deviation, and standard error of `Tumor Volume (mm3)` for each `Drug Regimen`.
+2. Display data in a new dataframe with `Drug Regimen` as the index.
 
-Create a DataFrame of summary statistics. Remember, there is more than one method to produce the results you're after, so the method you use is less important than the result.
+Result:
 
-> - *A new DataFrame is created with using the summary statistics. (5 points)*
+![summary statistics](Pymaceuticals/results/summary_statistics.png)
 
-Your summary statistics should include:
+### Create bar charts and pie charts
 
-- A row for each drug regimen. These regimen names should be contained in the index column.
+Steps:
 
-- A column for each of the following statistics: mean, median, variance, standard deviation, and SEM of the tumor volume.
+1. Display two identical bar charts with the number of `Mouse ID`/`Timepoints` measured for each drug regimen:
+   1. One generated using the pandas `.plot()` method
 
-> - *The mean of the tumor volume for each regimen is calculated using groupby. (2 points)*
-> - *The media of the tumor volume for each regimen is calculated using groupby. (2 points)*
-> - *The variance of the tumor volume for each regimen is calculated using groupby. (2 points)*
-> - *The standard deviation of the tumor volume for each regimen is calculated using groupby. (2 points)*
-> - *The SEM of the tumor volume for each regimen is calculated using groupby. (2 points)*
+        Result:
+
+        ![bar chart using pandas](Pymaceuticals/results/bar_pandas.png)
+
+   2. One using the `mathplotlib.pyplot` interface.
+
+        Result:
+
+        ![bar chart using pyplot](Pymaceuticals/results/bar_pyplot.png)
 
 
-### Create Bar Charts and Pie Charts *(15 points)*
+2. Display two identical pie charts with the percentage of female and male mice used in the study:
+   1. One generated using the pandas `.plot()` method
 
-1. Generate two bar charts. Both charts should be identical and show the total total number of rows (Mouse ID/Timepoints) for each drug regimen throughout the study.
+        Result:
 
-    - Create the first bar chart with the Pandas DataFrame.plot() method.
+        ![pie chart using pandas](Pymaceuticals/results/pie_pandas.png)
 
-    > - *A bar plot showing the total number of timepoints for all mice tested for each drug regimen using Pandas is generated. (4.5 points)*
+   2. One using the `mathplotlib.pyplot` interface.interface.
 
-    - Create the second bar chart with Matplotlib's pyplot methods.
+        Result:
 
-    > - *A bar plot showing the total number of timepoints for all mice tested for each drug regimen using pyplot is generated. (4.5 points)*
+        ![pie chart using pyplot](Pymaceuticals/results/pie_pyplot.png)
 
-2. Generate two pie charts. Both charts should be identical and show the distribution of female versus male mice in the study.
 
-    - Create the first pie chart with the Pandas DataFrame.plot() method.
+### Calculate quartiles, find outliers, and create a box plot.
 
-    > - *A pie plot showing the distribution of female versus male mice using Pandas is generated. (3 points)*
+Steps:
 
-    - Create the second pie chart with Matplotlib's pyplot methods.
+1. Find the last `Timepoint` for each `Mouse ID`.
+2. Get the final tumor volumes from four selected drug regimens only
+3. Calculate the interquantile range (IQR) for each of these regimens
+4. Use the IQR to identify potential outliers
+5. Generate a boxplot showing the distribution of final tumor volumes of each of the four drug regimens, making sure the outliers are clearly marked.
 
-    > - *A pie plot showing the distribution of female versus male mice using pyplot is generated. (3 points)*
+Result:
 
-### Calculate Quartiles, Find Outliers, and Create a Box Plot *(30 points)*
+![boxplot](Pymaceuticals/results/boxplot.png)
 
-1. Calculate the final tumor volume of each mouse across four of the most promising treatment regimens: Capomulin, Ramicane, Infubinol, and Ceftamin.
 
-> - *A DataFrame that has the last timepoint for each mouse ID is created using groupby. (5 points)*
-> - *The index of the DataFrame is reset. (2 points)*
+### Create a line plot and a scatter plot.
 
-2. Then, calculate the quartiles and IQR, and determine if there are any potential outliers across all four treatment regimens. Use the following substeps:
+Steps:
 
-    - Create a grouped DataFrame that shows the last (greatest) time point for each mouse. Merge this grouped DataFrame with the original cleaned DataFrame.
+1. Generate a lineplot that shows how the `Tumor Volume (mm3)` changed over the different `Timepoints` for a single mouse treated with Capomulin.
 
-    > - *Retrieve the maximum timepoint for each mouse. (2 points)*
+    Result:
 
-    - Create a list that holds the treatment names as well as a second, empty list to hold the tumor volume data.
+    ![line plot](Pymaceuticals/results/line_plot.png)
 
-    > - *The four treatment groups, Capomulin, Ramicane, Infubinol, and Ceftamin, are put in a list. (3 points)*
-    > - *An empty list is created to fill with tumor volume data. (3 points)*
+2. Generate a scatter plot showing the `Average Tumor Volume (mm3)` of mice by their `Weight (g)` for the Capomulin regimen.
 
-    - Loop through each drug in the treatment list, locating the rows in the merged DataFrame that correspond to each treatment. Append the resulting final tumor volumes for each drug to the empty list.
+    Result:
 
-    - Determine outliers by using the upper and lower bounds, and then print the results.
+    ![scatter plot](Pymaceuticals/results/scatter_plot.png)
 
-    > - *A for loop is used to display the interquartile range (IQR) and the outliers for each treatment group (10 points)*
+### Calculate correlation and regression.
 
-3. Using Matplotlib, generate a box plot that shows the distribution of the final tumor volume for all the mice in each treatment group. Highlight any potential outliers in the plot by changing their color and style.
+Steps:
 
-> - *A box plot is generated that shows the distribution of the final tumor volume for all the mice in each treatment group. (5 points)*
+1. Run a linear regression model between mouse `Weight (g)` and `Average Tumor Volume (mm3)` for the Capomulin regimen.
+2. Get the correlation coefficient from this model.
+3. Plot the model on the previous scatter plot to visualize the relationship between the two variables.
 
-**hint:** All four box plots should be within the same figure. Use this Matplotlib documentation pageLinks to an external site. for help with changing the style of the outliers.
+Result:
 
-### Create a Line Plot and a Scatter Plot *(10 points)*
+![scatterplot with linear regression](Pymaceuticals/results/scatter_with_linregress.png)
 
-1. Select a single mouse that was treated with Capomulin, and generate a line plot of tumor volume versus time point for that mouse.
 
-> - *A line plot is generated that shows the tumor volume vs. time point for one mouse treated with Capomulin. (5 points)*
+## References
 
-2. Generate a scatter plot of mouse weight versus average observed tumor volume for the entire Capomulin treatment regimen.
+Challenge instructions and input file, as well as some code sections that were adapted from the UofT SCS EdX Data Bootcamp class activities:
 
-> - *A scatter plot is generated that shows average tumor volume vs. mouse weight for the Capomulin regimen. (5 points)*
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
-### Calculate Correlation and Regression *(10 points)*
+Some other code sections were adapted from other sources, specific explanations are found within the code comments:
 
-1. Calculate the correlation coefficient and linear regression model between mouse weight and average observed tumor volume for the entire Capomulin treatment regimen.
-
-2. Plot the linear regression model on top of the previous scatter plot.
-
-> - *The correlation coefficient and linear regression model are calculated for mouse weight and average tumor volume for the Capomulin regimen. (10 points)*
+| Purpose | URL |
+| :- | :- |
+| How to save a pandas dataframe to an image | https://pypi.org/project/dataframe-image/ |
+| How to work with colormaps and matplotlib | https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/ |
+| How to add alpha to a colormap | https://www.tutorialspoint.com/add-alpha-to-an-existing-matplotlib-colormap |
+| Documentation for the linear regression model and finding correlation coefficient | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html#scipy.stats.linregress |
