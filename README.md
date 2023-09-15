@@ -157,9 +157,9 @@ Challenge instructions and input file, as well as some code sections that were a
 
 Some other code sections were adapted from other sources, specific explanations are found within the code comments:
 
-| Purpose | URL |
+| Purpose | Link |
 | :- | :- |
-| How to save a pandas dataframe to an image | https://pypi.org/project/dataframe-image/ |
-| How to work with colormaps and matplotlib | https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/ |
-| How to add alpha to a colormap | https://www.tutorialspoint.com/add-alpha-to-an-existing-matplotlib-colormap |
-| Documentation for the linear regression model and finding correlation coefficient | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html#scipy.stats.linregress |
+| How to save a pandas dataframe to an image | [Link](https://pypi.org/project/dataframe-image/) |
+| How to work with colormaps and matplotlib | [Link](https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/) |
+| How to add alpha to a colormap | [Link](https://www.tutorialspoint.com/add-alpha-to-an-existing-matplotlib-colormap) |
+| Documentation for the linear regression model and finding correlation coefficient | [Link](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html#scipy.stats.linregress) |
