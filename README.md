@@ -82,13 +82,13 @@ Steps:
 
         Result:
 
-        ![bar chart using pandas](Pymaceuticals/results/bar_pandas.png)
+        ![bar chart using pandas](Pymaceuticals/results/bar_pandas_tl.png)
 
    2. One using the `mathplotlib.pyplot` interface.
 
         Result:
 
-        ![bar chart using pyplot](Pymaceuticals/results/bar_pyplot.png)
+        ![bar chart using pyplot](Pymaceuticals/results/bar_pyplot_tl.png)
 
 
 2. Display two identical pie charts with the percentage of female and male mice used in the study:
@@ -96,13 +96,13 @@ Steps:
 
         Result:
 
-        ![pie chart using pandas](Pymaceuticals/results/pie_pandas.png)
+        ![pie chart using pandas](Pymaceuticals/results/pie_pandas_tl.png)
 
    2. One using the `mathplotlib.pyplot` interface.interface.
 
         Result:
 
-        ![pie chart using pyplot](Pymaceuticals/results/pie_pyplot.png)
+        ![pie chart using pyplot](Pymaceuticals/results/pie_pyplot_tl.png)
 
 
 ### Calculate quartiles, find outliers, and create a box plot.
@@ -117,7 +117,7 @@ Steps:
 
 Result:
 
-![boxplot](Pymaceuticals/results/boxplot.png)
+![boxplot](Pymaceuticals/results/boxplot_tl.png)
 
 
 ### Create a line plot and a scatter plot.
@@ -128,13 +128,13 @@ Steps:
 
     Result:
 
-    ![line plot](Pymaceuticals/results/line_plot.png)
+    ![line plot](Pymaceuticals/results/line_plot_tl.png)
 
 2. Generate a scatter plot showing the `Average Tumor Volume (mm3)` of mice by their `Weight (g)` for the Capomulin regimen.
 
     Result:
 
-    ![scatter plot](Pymaceuticals/results/scatter_plot.png)
+    ![scatter plot](Pymaceuticals/results/scatter_plot_tl.png)
 
 ### Calculate correlation and regression.
 
@@ -146,7 +146,7 @@ Steps:
 
 Result:
 
-![scatterplot with linear regression line](Pymaceuticals/results/scatter_with_linregress.png)
+![scatterplot with linear regression line](Pymaceuticals/results/scatter_with_linregress_tl.png)
 
 
 ## References
