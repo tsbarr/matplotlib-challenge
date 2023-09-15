@@ -146,7 +146,7 @@ Steps:
 
 Result:
 
-![scatterplot with linear regression](Pymaceuticals/results/scatter_with_linregress.png)
+![scatterplot with linear regression line](Pymaceuticals/results/scatter_with_linregress.png)
 
 
 ## References
